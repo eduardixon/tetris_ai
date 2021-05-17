@@ -1,24 +1,49 @@
-from board import Direction, Rotation
-from random import Random
+class Player():
+    def __init__(self):
+        self.heights = []
+        self.chosen_position = None
+        self.chosen_rotation = None
+
+    def calculate_heights(self, board):
+        # Necesitaremos: board.width, board.height, board.cells. Y "rellenar" self.heights.
+        for i in board.width:
+            height = 0
+            for j in board.height:
+                # (i,j) es un cuadrado del tablero
+                if (i,j) in board.cells and j > height:    # Si True, significa que "está llena"
+                    height = j
+            self.heights.append(height)
 
 
-class Player:
-    def choose_action(self, board):
-        raise NotImplementedError
+    def sum_heights(self, board):   # HECHO
+        # Rellenamos self.heights
+        self.calculate_heights(board)
+
+        return sum(self.heights)
 
 
-class RandomPlayer(Player):
-    def __init__(self, seed=None):
-        self.random = Random(seed)
-
-    def choose_action(self, board):
-        return self.random.choice([
-            Direction.Left,
-            Direction.Right,
-            Direction.Down,
-            Rotation.Anticlockwise,
-            Rotation.Clockwise,
-        ])
+    def holes_count(self, board):
+        pass
 
 
-SelectedPlayer = RandomPlayer
+    def calculate_bumpiness(self, board):
+        self.calculate_heights(board)
+        pass
+
+
+    def count_cleared_lines(self,board,previous_score):
+        # new_score - previous_score
+        pass
+    
+    
+    def find_best_move(self,board):
+        # Llamará las de arriba
+        
+        # Iterar por todas las rotaciones y movimientos posibles
+        # Crear para cada rotación y movimiento posible, un tablero sandbox (sandbox = board.clone())
+        # En el sandox, harás los movimientos y rotaciones, calcularás current_score, y verás si supera un best_score
+        # Para el best_score, guardarás self.chosen_position, self.chosen_rotation
+        pass
+
+    def choose_action(self):
+        pass
