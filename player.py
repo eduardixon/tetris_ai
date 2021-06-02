@@ -21,11 +21,44 @@ class Player():
 
         return sum(self.heights)
 
-
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]
+        # [0,0,0,0,0,0,0,0,0,0]
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]  
+        # [0,0,0,0,0,0,0,0,0,0]   
+            
+    def calculate_squares(self, board): #Calcular si el cuadrante esta relleno         
+          
+        matriz_cuadrantes = []   
+        for h in board.height:
+            matriz_cuadrantes.append([])
+            for w in board.width:
+                if (h,w) in board.cells:
+                    matriz_cuadrantes[h - 1].append(1)
+                else:
+                    matriz_cuadrantes[h - 1].append(0)
+                    
     def holes_count(self, board):
         pass
-
-
     def calculate_bumpiness(self, board):
         self.calculate_heights(board)
         pass
